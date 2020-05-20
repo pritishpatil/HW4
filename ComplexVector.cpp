@@ -1,3 +1,10 @@
+/*
+	PIC 10B 2B, Homework 4
+	Purpose: Vector Arithmetic + Recursive Function
+	Author: Pritish Patil
+	Date: 05/20/2020
+*/
+
 #include "ComplexVector.h"
 #include "Complex.h"
 
@@ -21,6 +28,7 @@ void ComplexVector::put(Complex term)
 	vector.push_back(term);
 }
 
+// operator overload for various arithmetic
 ComplexVector ComplexVector::operator+(ComplexVector& another)
 {
 	ComplexVector sum = ComplexVector();
@@ -78,10 +86,9 @@ ComplexVector ComplexVector::operator/(ComplexVector& another)
 }
 
 
-
+// cout operator overload
 ostream& operator<<(ostream& out, const ComplexVector& value)
 {
-	
 	out << "{ " << value.vector[0] << ", " << value.vector[1] << ", " << value.vector[2] << ", " << value.vector[3] << " }" << endl;
 	return out;
 }

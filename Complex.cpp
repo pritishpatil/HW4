@@ -1,3 +1,10 @@
+/*
+	PIC 10B 2B, Homework 4
+	Purpose: Vector Arithmetic + Recursive Function
+	Author: Pritish Patil
+	Date: 05/20/2020
+*/
+
 #include "Complex.h"
 #include <iomanip>
 
@@ -33,7 +40,7 @@ void Complex::setImaginary(double newImaginary)
 	imaginary = newImaginary;
 }
 
-
+// operator overload for Complex object arithmetic
 Complex Complex::operator+(Complex& value)
 {
 	double newReal = real + value.getReal();
@@ -69,6 +76,7 @@ Complex Complex::operator/(Complex& value)
 	return Complex(newReal, newImaginary);
 }
 
+// friend function for cout operator overload
 ostream& operator<<(ostream& out, const Complex& value)
 {
 	string op = value.imaginary < 0 ? " - " : " + ";

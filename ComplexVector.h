@@ -13,7 +13,7 @@ public:
 
 	ComplexVector();
 	ComplexVector(Complex,Complex,Complex,Complex);
-	void printInfo();
+	/*void printInfo();*/
 	void printAddition(ComplexVector, ComplexVector);
 
 private:

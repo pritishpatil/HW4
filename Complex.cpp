@@ -33,42 +33,45 @@ void Complex::setImaginary(double newImaginary)
 }
 
 
-Complex Complex::operator+(Complex& complexValue1)
+Complex Complex::operator+(Complex& value)
 {
-	real = real + complexValue1.getReal();
-	imaginary = imaginary + complexValue1.getImaginary();
-	return Complex(real, imaginary);
+	double newReal = real + value.getReal();
+	double newImaginary = imaginary + value.getImaginary();
+	return Complex(newReal, newImaginary);
 }
 
-Complex Complex::operator-(Complex& complexValue1)
+Complex Complex::operator-(Complex& value)
 {
-	real = real - complexValue1.getReal();
-	imaginary = imaginary - complexValue1.getImaginary();
-	return Complex(real, imaginary);
+	double newReal = real - value.getReal();
+	double newImaginary = imaginary - value.getImaginary();
+	return Complex(newReal, newImaginary);
 }
 
-Complex Complex::operator*(Complex& complexValue1)
+Complex Complex::operator*(Complex& value)
 {
-	double tempReal = real;
-	double tempImaginary = imaginary;
-	real = ((tempReal * complexValue1.getReal()) - (tempImaginary * complexValue1.getImaginary()));
-	imaginary = ((tempImaginary * complexValue1.getReal()) + (tempReal * complexValue1.getImaginary()));
-	return Complex(real, imaginary);
+	double newReal = (real * value.getReal()) - (imaginary * value.getImaginary());
+	double newImaginary = (imaginary * value.getReal()) + (real * value.getImaginary());
+	return Complex(newReal, newImaginary);
 }
 
-Complex Complex::operator/(Complex& complexValue1)
+Complex Complex::operator/(Complex& value)
 {
-	double tempReal = real;
-	double tempImaginary = imaginary;
-	real = ((tempReal * complexValue1.getReal()) + (tempImaginary * complexValue1.getImaginary())) / (pow(complexValue1.getReal(), 2) + pow(complexValue1.getImaginary(), 2));
-	imaginary = (((tempImaginary * complexValue1.getReal()) - (tempReal * complexValue1.getImaginary()))) / ((complexValue1.getReal()) * (complexValue1.getReal())) + ((complexValue1.getImaginary()) * (complexValue1.getImaginary()));
-	return Complex(real, imaginary);
+	double a = real;
+	double b = imaginary;
+	double c = value.getReal();
+	double d = value.getImaginary();
+	double numeratorReal = (a * c) + (b * d);
+	double numeratorImaginary = (b * c) - (a * d);
+	double denominator = pow(c, 2) + pow(d, 2);
+	double newReal = numeratorReal / denominator;
+	double newImaginary = numeratorImaginary / denominator;
+	return Complex(newReal, newImaginary);
 }
 
 ostream& operator<<(ostream& out, const Complex& value)
 {
 	string op = value.imaginary < 0 ? " - " : " + ";
-	out << value.real << op << value.imaginary << "i";
+	out << value.real << op << abs(value.imaginary) << "i";
 	return out;
 }
 

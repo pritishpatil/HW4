@@ -14,18 +14,18 @@ ComplexVector::ComplexVector(Complex newValue1, Complex newValue2, Complex newVa
 	vector.push_back(newValue4);
 }
 
-void ComplexVector::printInfo()
-{
-	cout << "{ ";
-	vector[0].printInfo();
-	cout << ", ";
-	vector[1].printInfo();
-	cout << ", ";
-	vector[2].printInfo();
-	cout << ", ";
-	vector[3].printInfo();
-	cout << " }" << endl;
-}
+//void ComplexVector::printInfo()
+//{
+//	cout << "{ ";
+//	vector[0].printInfo();
+//	cout << ", ";
+//	vector[1].printInfo();
+//	cout << ", ";
+//	vector[2].printInfo();
+//	cout << ", ";
+//	vector[3].printInfo();
+//	cout << " }" << endl;
+//}
 
 //void complexvector::printaddition(complexvector newv1, complexvector newv2)
 //{

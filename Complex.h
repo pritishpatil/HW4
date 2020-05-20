@@ -14,7 +14,6 @@ public:
 	int getImaginary();
 	void setReal(double);
 	void setImaginary(double);
-	void printInfo();
 	Complex operator+(Complex&);
 	Complex operator-(Complex&);
 	Complex operator*(Complex&);

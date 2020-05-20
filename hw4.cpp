@@ -20,15 +20,22 @@ int main()
     Complex value7(2,-8);
     Complex value8(10,-142);
 
-    cout << value1 + value2 << endl;
+    /*cout << value1 + value2 << endl;
     cout << value1 - value2 << endl;
     cout << value1 * value2 << endl;
-    cout << value1 / value2 << endl;
+    cout << value1 / value2 << endl;*/
 
-   /* ComplexVector v1(value1, value2, value3, value4);
-    v1.printInfo();
+    ComplexVector v1(value1, value2, value3, value4);
     ComplexVector v2(value5, value6, value7, value8);
-    v2.printInfo();*/
+
+    cout << "v1 = " << v1 << endl;
+    cout << "v2 = " << v2 << endl;
+    
+    cout << "v1 + v2 = " << v1 + v2 << endl;
+    cout << "v1 - v2 = " << v1 - v2 << endl;
+    cout << "v1 * v2 = " << v1 * v2 << endl;
+    cout << "v1 / v2 = " << v1 / v2 << endl;
+    
 
 }
 

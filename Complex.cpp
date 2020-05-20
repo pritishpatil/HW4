@@ -1,4 +1,5 @@
 #include "Complex.h"
+#include <iomanip>
 
 Complex::Complex()
 {
@@ -12,12 +13,12 @@ Complex::Complex(double newReal, double newImaginary)
 	imaginary = newImaginary;
 }
 
-int Complex::getReal()
+double Complex::getReal()
 {
 	return real;
 }
 
-int Complex::getImaginary()
+double Complex::getImaginary()
 {
 	return imaginary;
 }
@@ -71,7 +72,8 @@ Complex Complex::operator/(Complex& value)
 ostream& operator<<(ostream& out, const Complex& value)
 {
 	string op = value.imaginary < 0 ? " - " : " + ";
-	out << value.real << op << abs(value.imaginary) << "i";
+	float number = 10.0;
+	out << fixed << setprecision(1) << round(number *value.real) / 10 << op << fixed << setprecision(1) << round(number * abs(value.imaginary)) / 10 << "i";
 	return out;
 }
 

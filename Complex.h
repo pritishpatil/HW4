@@ -10,8 +10,8 @@ public:
 	
 	Complex();
 	Complex(double, double);
-	int getReal();
-	int getImaginary();
+	double getReal();
+	double getImaginary();
 	void setReal(double);
 	void setImaginary(double);
 	Complex operator+(Complex&);

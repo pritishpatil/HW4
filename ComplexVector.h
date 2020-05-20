@@ -5,21 +5,19 @@
 #include <string>
 using namespace std;
 
-class ComplexVector : 
-	public Complex
+class ComplexVector
 {
-
 public: 
-
 	ComplexVector();
 	ComplexVector(Complex,Complex,Complex,Complex);
-	/*void printInfo();*/
-	void printAddition(ComplexVector, ComplexVector);
+	ComplexVector operator+(ComplexVector&);
+	ComplexVector operator-(ComplexVector&);
+	ComplexVector operator*(ComplexVector&);
+	ComplexVector operator/(ComplexVector&);
+	friend ostream& operator<<(ostream& out, const ComplexVector& value);
+	void put(Complex);
 
 private:
-
 	vector<Complex> vector;
-
-
 };
 

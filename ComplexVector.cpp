@@ -1,4 +1,5 @@
 #include "ComplexVector.h"
+#include "Complex.h"
 
 
 ComplexVector::ComplexVector()
@@ -14,24 +15,77 @@ ComplexVector::ComplexVector(Complex newValue1, Complex newValue2, Complex newVa
 	vector.push_back(newValue4);
 }
 
-//void ComplexVector::printInfo()
-//{
-//	cout << "{ ";
-//	vector[0].printInfo();
-//	cout << ", ";
-//	vector[1].printInfo();
-//	cout << ", ";
-//	vector[2].printInfo();
-//	cout << ", ";
-//	vector[3].printInfo();
-//	cout << " }" << endl;
-//}
 
-//void complexvector::printaddition(complexvector newv1, complexvector newv2)
-//{
-//	cout << newv1 + newv2 << endl;
-//}
-//
+void ComplexVector::put(Complex term)
+{
+	vector.push_back(term);
+}
+
+ComplexVector ComplexVector::operator+(ComplexVector& another)
+{
+	ComplexVector sum = ComplexVector();
+	for (int i = 0; i < vector.size(); i++)
+	{
+		Complex temp = vector[i];
+		Complex temp2 = another.vector[i];
+		Complex result = temp + temp2;
+		
+		sum.put(result);
+	}
+	return sum;
+}
+
+ComplexVector ComplexVector::operator-(ComplexVector& another)
+{
+	ComplexVector difference = ComplexVector();
+	for (int i = 0; i < vector.size(); i++)
+	{
+		Complex temp = vector[i];
+		Complex temp2 = another.vector[i];
+		Complex result = temp - temp2;
+
+		difference.put(result);
+	}
+	return difference;
+}
+
+ComplexVector ComplexVector::operator*(ComplexVector& another)
+{
+	ComplexVector product = ComplexVector();
+	for (int i = 0; i < vector.size(); i++)
+	{
+		Complex temp = vector[i];
+		Complex temp2 = another.vector[i];
+		Complex result = temp * temp2;
+
+		product.put(result);
+	}
+	return product;
+}
+
+ComplexVector ComplexVector::operator/(ComplexVector& another)
+{
+	ComplexVector quotient = ComplexVector();
+	for (int i = 0; i < vector.size(); i++)
+	{
+		Complex temp = vector[i];
+		Complex temp2 = another.vector[i];
+		Complex result = temp / temp2;
+
+		quotient.put(result);
+	}
+	return quotient;
+}
+
+
+
+ostream& operator<<(ostream& out, const ComplexVector& value)
+{
+	
+	out << "{ " << value.vector[0] << ", " << value.vector[1] << ", " << value.vector[2] << ", " << value.vector[3] << " }" << endl;
+	return out;
+}
+
 
 
 

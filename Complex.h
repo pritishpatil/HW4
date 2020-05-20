@@ -19,8 +19,10 @@ public:
 	Complex(double, double);
 	double getReal();
 	double getImaginary();
+	bool getHighprecision();
 	void setReal(double);
 	void setImaginary(double);
+	void setHighprecision();
 
 	// operator overload for Complex object arithmetic
 	Complex operator+(Complex&);
@@ -35,6 +37,7 @@ private:
 
 	double real;
 	double imaginary;
+	bool highPrecision = false;
 
 };
 

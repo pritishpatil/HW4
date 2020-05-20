@@ -17,9 +17,8 @@ Complex series(int n)
     double real = 0;
     double imaginary = 0;
     // terminating case
-    if (n == 1)
+    if (n == 0)
     {
-        cout << "Base case" << endl;
         real = 1;
         imaginary = 1;
     }
@@ -67,7 +66,21 @@ int main()
     // outputs recursive sequence to output file
     ofstream outputFile;
     outputFile.open("ComplexSequence.txt");
-    outputFile << "{ " << series(1) << ", " << series(2) << ", " << series(3) << ", " << series(4) << ", " << series(5) << ", " << series(6) << " }";
+    Complex s1 = series(0);
+    Complex s2 = series(1);
+    Complex s3 = series(2);
+    Complex s4 = series(3);
+    Complex s5 = series(4);
+    Complex s6 = series(5);
+
+    s1.setHighprecision();
+    s2.setHighprecision();
+    s3.setHighprecision();
+    s4.setHighprecision();
+    s5.setHighprecision();
+    s6.setHighprecision();
+
+    outputFile << "{ " << s1 << ", " << s2 << ", " << s3 << ", " << s4 <<", " << "\n" << s5 << ", " << s6 << " }";
     outputFile.close();
 }
 

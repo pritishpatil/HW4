@@ -30,6 +30,11 @@ double Complex::getImaginary()
 	return imaginary;
 }
 
+bool Complex::getHighprecision()
+{
+	return highPrecision;
+}
+
 void Complex::setReal(double newReal)
 {
 	real = newReal;
@@ -38,6 +43,11 @@ void Complex::setReal(double newReal)
 void Complex::setImaginary(double newImaginary)
 {
 	imaginary = newImaginary;
+}
+
+void Complex::setHighprecision()
+{
+	highPrecision = true;
 }
 
 // operator overload for Complex object arithmetic
@@ -81,7 +91,16 @@ ostream& operator<<(ostream& out, const Complex& value)
 {
 	string op = value.imaginary < 0 ? " - " : " + ";
 	float number = 10.0;
-	out << fixed << setprecision(1) << round(number *value.real) / 10 << op << fixed << setprecision(1) << round(number * abs(value.imaginary)) / 10 << "i";
+	int precision = value.highPrecision ? 10 : 1;
+	if (!value.highPrecision)
+	{
+		out << fixed << setprecision(precision) << round(number * value.real) / 10 << op << fixed << setprecision(precision) << round(number * abs(value.imaginary)) / 10 << "i";
+	}
+	else
+	{
+		out << fixed << setprecision(precision) << value.real << op << fixed << setprecision(precision) << abs(value.imaginary) << "i";
+
+	}
 	return out;
 }
 
